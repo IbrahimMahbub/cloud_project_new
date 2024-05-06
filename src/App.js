@@ -6,6 +6,8 @@ import { Amplify } from 'aws-amplify';
 import awsconfig from './aws-exports';
 import CustomerReviewForm from './CustomerReviewForm';
 import SupportFeedbackForm from './SupportFeedbackForm';
+import HomePage from './HomePage';
+
 
 Amplify.configure(awsconfig);
 
@@ -14,9 +16,10 @@ function App() {
     <BrowserRouter>
       <Authenticator>
         <Routes>
-          <Route path="/customer" component={CustomerReviewForm} />
-          <Route path="/support" component={SupportFeedbackForm} />
-          <Route path="/" exact render={() => <h1>Welcome!</h1>} />
+          <Route path="/" exact element={<HomePage/>} />
+          <Route path="/customer" element={<CustomerReviewForm/>} />
+          <Route path="/support" element={<SupportFeedbackForm/>} />
+          
         </Routes>
       </Authenticator>
     </BrowserRouter>
